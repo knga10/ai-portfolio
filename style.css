@@ -280,13 +280,58 @@ nav {
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 200px 1fr;
   gap: 4rem;
   align-items: start;
 }
 
 @media (max-width: 720px) {
   .about-content { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 4px;
+  border: 1px solid var(--beige-dark);
+}
+
+.about-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-qr img,
+#qrcode img,
+#qrcode canvas {
+  border: 1px solid var(--beige-dark);
+  padding: 6px;
+  background: var(--beige);
+  border-radius: 4px;
+}
+
+.qr-label {
+  font-size: 0.65rem;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .about-lead {
