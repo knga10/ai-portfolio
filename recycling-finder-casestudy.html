@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recycling Finder · Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav>
+      <a href="index.html" class="nav-name">Kristine</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="waitlist.html">Stay in the Loop</a></li>
+        <li><a href="mailto:hello@example.com">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════ -->
+    <section class="cs-hero">
+      <div class="cs-hero-inner">
+        <a href="index.html" class="cs-back">← Back to projects</a>
+        <p class="hero-eyebrow">Sustainability · Community</p>
+        <h1>Recycling Finder<br><em>Because landfill shouldn't be the default</em></h1>
+        <div class="cs-hero-meta">
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Year</span>
+            <span>2026</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Stack</span>
+            <span>React · Vite · Claude API · Upstash Redis</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Deployed via</span>
+            <span>Vercel</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Live site</span>
+            <a href="#" class="inline-link">View project →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 1 — ORIGINAL PROMPT
+    ═══════════════════════════════════════ -->
+    <section class="cs-section cs-section--tinted">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">01</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">The Original Prompt</h2>
+          <p class="cs-section-sub">The exact words I gave Claude to kick this off.</p>
+          <div class="cs-prompt-block">
+            <p>
+Research companies that take household recycling or waste. Check what types of products they take, if there is a cost to recycle, if they offer discounts or any rewards, and what they do with the waste. As a reference, Kitchen Warehouse does this with old pans and they offer a 10% discount for a Tefal pan. Put this in a table in Google Sheets so that it is easy to reference.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2 — ELI5
+    ═══════════════════════════════════════ -->
+    <section class="cs-section">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">02</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">Explain It Like I'm 5</h2>
+          <p class="cs-section-sub">How it works, why it was built this way, and the thinking behind each decision.</p>
+
+          <div class="cs-eli5-grid">
+
+            <div class="cs-eli5-card">
+              <div class="cs-eli5-icon">⚙️</div>
+              <h3>What it does</h3>
+              <p>
+You type in any item — an old frying pan, dead batteries, worn-out sneakers — and the app finds which Australian companies will take it back, what it costs, whether you get a reward, and exactly where to drop it off. It started as a spreadsheet, became a web app, and grew into a community-maintained directory that anyone can add to.
+              </p>
+            </div>
+
+            <div class="cs-eli5-card">
+              <div class="cs-eli5-icon">🧱</div>
+              <h3>How it's built</h3>
+              <p>
+It's a React app (the interactive webpage) that talks to Claude's brain (the AI API) to understand your search and match it to the right programs. Program data lives in a shared Upstash Redis database so every visitor sees the same up-to-date list. Three small serverless functions handle the AI search, URL scraping, and email notifications — all running on Vercel without any traditional server.
+              </p>
+            </div>
+
+            <div class="cs-eli5-card">
+              <div class="cs-eli5-icon">🤔</div>
+              <h3>Why this approach</h3>
+              <p>
+Natural language search means users don't need to know the right category or keyword — "old mascara" just works. A shared database (rather than browser storage) means submissions from any user are immediately visible to everyone. The URL scraper lets the database grow quickly without manual data entry. And keeping the API key server-side via Vercel functions means it's never exposed to the public.
+              </p>
+            </div>
+
+            <div class="cs-eli5-card">
+              <div class="cs-eli5-icon">🚀</div>
+              <h3>How it's deployed</h3>
+              <p>
+The code lives in a GitHub repository. Every time a file is updated on GitHub, Vercel automatically rebuilds and redeploys the site within about 60 seconds — no manual steps needed. The Anthropic API key, Google OAuth credentials, Resend email key, and database connection are all stored as encrypted environment variables in Vercel, never in the code itself.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3 — WHAT'S NEXT
+    ═══════════════════════════════════════ -->
+    <section class="cs-section cs-section--tinted">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">03</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">What's Next</h2>
+          <p class="cs-section-sub">Where this project could go with more time and feedback.</p>
+
+          <div class="cs-next-list">
+
+            <div class="cs-next-item">
+              <span class="cs-next-tag">Near-term</span>
+              <p>
+Filter results by state or suburb — many programs are location-specific and users currently have to check the drop-off finder themselves. Surfacing a "nearest location" result directly in the search card would remove that friction entirely.
+              </p>
+            </div>
+
+            <div class="cs-next-item">
+              <span class="cs-next-tag">Medium-term</span>
+              <p>
+User accounts with saved favourites and email alerts when new programs are added in categories they care about. The in-app feedback survey already shows this is the most-requested feature — building it would meaningfully increase return visits and give the database a natural growth loop.
+              </p>
+            </div>
+
+            <div class="cs-next-item">
+              <span class="cs-next-tag">Ambitious</span>
+              <p>
+A mobile app with camera-based item recognition — point your phone at something and instantly see if it can be recycled and where. Combine that with real-time program status checks and postcode-aware results, and it becomes the Shazam of responsible disposal.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — FEEDBACK
+    ═══════════════════════════════════════ -->
+    <section class="cs-section cs-section--sage">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">04</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">Share Your Thoughts</h2>
+          <p class="cs-section-sub">Feedback, ideas, and questions are welcome — I read everything.</p>
+
+          <form class="cs-feedback-form" id="feedbackForm">
+            <div class="cs-form-row">
+              <div class="cs-form-group">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" />
+              </div>
+              <div class="cs-form-group">
+                <label for="email">Email <span class="cs-form-optional">(optional)</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" />
+              </div>
+            </div>
+            <div class="cs-form-group">
+              <label for="reaction">What's your reaction to this project?</label>
+              <div class="cs-reaction-group">
+                <label class="cs-reaction-option">
+                  <input type="radio" name="reaction" value="Love it" /> Love it
+                </label>
+                <label class="cs-reaction-option">
+                  <input type="radio" name="reaction" value="Interesting" /> Interesting
+                </label>
+                <label class="cs-reaction-option">
+                  <input type="radio" name="reaction" value="Has potential" /> Has potential
+                </label>
+                <label class="cs-reaction-option">
+                  <input type="radio" name="reaction" value="I'd use this" /> I'd use this
+                </label>
+              </div>
+            </div>
+            <div class="cs-form-group">
+              <label for="message">Your thoughts</label>
+              <textarea id="message" name="message" rows="4" placeholder="What stood out? What would you change? What would you love to see next?"></textarea>
+            </div>
+            <div class="cs-form-footer">
+              <button type="submit" class="cs-submit-btn" id="submitBtn">Send feedback</button>
+              <p class="cs-form-note">Responses go to a private Google Sheet — no spam, ever.</p>
+            </div>
+            <div id="formSuccess" class="cs-form-success" style="display:none;">
+              Thanks for the feedback — it genuinely helps. ✦
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with curiosity. Deployed with care.</p>
+    <p class="footer-year">© 2026 Kristine</p>
+  </footer>
+
+  <script>
+    // ─────────────────────────────────────────
+    // GOOGLE SHEETS FORM SUBMISSION
+    // Instructions:
+    // 1. Create a Google Sheet
+    // 2. Go to Extensions → Apps Script
+    // 3. Paste the Apps Script code from the README
+    // 4. Deploy as Web App, copy the URL
+    // 5. Replace YOUR_APPS_SCRIPT_URL below
+    // ─────────────────────────────────────────
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOAFR1REIlh8KIkbEZy-j8D8uTczqRzNnRfV1yrVGIW7D4OR-ssSMZZPvhlHtn851X/exec";
+    const PROJECT_NAME    = "Recycling Finder"; // update per page
+
+    document.getElementById("feedbackForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById("submitBtn");
+      btn.textContent = "Sending...";
+      btn.disabled = true;
+
+      const data = {
+        project:  PROJECT_NAME,
+        name:     document.getElementById("name").value,
+        email:    document.getElementById("email").value,
+        reaction: document.querySelector('input[name="reaction"]:checked')?.value || "",
+        message:  document.getElementById("message").value,
+        date:     new Date().toLocaleString("en-AU")
+      };
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        document.getElementById("feedbackForm").style.display = "none";
+        document.getElementById("formSuccess").style.display = "block";
+      } catch (err) {
+        btn.textContent = "Send feedback";
+        btn.disabled = false;
+        alert("Something went wrong — please try again.");
+      }
+    });
+  </script>
+
+</body>
+</html>

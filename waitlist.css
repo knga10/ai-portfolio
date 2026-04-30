@@ -1,0 +1,323 @@
+/* =============================================
+   WAITLIST PAGE STYLES
+   ============================================= */
+
+/* Active nav link */
+.nav-link--active {
+  color: var(--rust) !important;
+}
+
+/* Hero */
+.wl-hero {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 7rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+.wl-hero-inner { max-width: 600px; }
+
+.wl-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 1rem 0 1.5rem;
+}
+
+.wl-hero h1 em {
+  font-style: italic;
+  color: var(--rust);
+}
+
+.wl-hero-sub {
+  font-size: 1.05rem;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* Decorative orbs */
+.wl-hero-ornaments {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+}
+
+.wl-orb {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.wl-orb--1 {
+  width: 120px;
+  height: 120px;
+  background: var(--rust-pale);
+  border: 1px solid var(--rust-light);
+  opacity: 0.5;
+  top: 0; left: 0;
+}
+
+.wl-orb--2 {
+  width: 80px;
+  height: 80px;
+  background: var(--sage-pale);
+  border: 1px solid var(--sage-light);
+  opacity: 0.6;
+  bottom: 0; right: 0;
+}
+
+@media (max-width: 640px) {
+  .wl-hero { grid-template-columns: 1fr; padding: 4rem 1.25rem 3rem; }
+  .wl-hero-ornaments { display: none; }
+}
+
+/* Coming soon strip */
+.wl-coming {
+  background: var(--white);
+  border-top: 1px solid var(--beige-mid);
+  border-bottom: 1px solid var(--beige-mid);
+}
+
+.wl-coming-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3.5rem 2rem;
+}
+
+.wl-coming-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 1.5rem;
+}
+
+.wl-coming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--beige-mid);
+  border: 1px solid var(--beige-mid);
+}
+
+.wl-coming-card {
+  background: var(--beige);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.wl-coming-card--quiet {
+  background: var(--sage-pale);
+}
+
+.wl-coming-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.wl-coming-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.wl-coming-card p {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+
+/* Form section */
+.wl-form-section {
+  padding: 5rem 2rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.wl-form-outer {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.wl-form-header {
+  margin-bottom: 2.5rem;
+}
+
+.wl-form-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.wl-form-header p {
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+}
+
+/* Form */
+.wl-form {
+  background: var(--white);
+  border: 1px solid var(--beige-mid);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.wl-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 560px) {
+  .wl-form-row { grid-template-columns: 1fr; }
+  .wl-form { padding: 1.5rem; }
+  .wl-form-section { padding: 3rem 1.25rem; }
+}
+
+.wl-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.wl-form-group label {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+}
+
+.wl-form-hint {
+  font-size: 0.78rem;
+  color: var(--ink-light);
+  margin-top: -0.2rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.wl-optional {
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.wl-form-group input[type="text"],
+.wl-form-group input[type="email"],
+.wl-form-group textarea {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--beige);
+  border: 1px solid var(--beige-dark);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.wl-form-group input:focus,
+.wl-form-group textarea:focus {
+  border-color: var(--rust);
+}
+
+/* Interest checkboxes */
+.wl-interest-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.wl-interest-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  background: var(--beige);
+  border: 1px solid var(--beige-dark);
+  padding: 0.45rem 1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.wl-interest-option:has(input:checked) {
+  border-color: var(--rust);
+  background: var(--rust-pale);
+  color: var(--ink);
+}
+
+.wl-interest-option input {
+  display: none;
+}
+
+/* Submit row */
+.wl-form-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.wl-submit-btn {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--rust);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.wl-submit-btn:hover:not(:disabled) { background: var(--rust-light); }
+.wl-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.wl-form-note {
+  font-size: 0.78rem;
+  color: var(--ink-light);
+}
+
+/* Success state */
+.wl-success {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+.wl-success-mark {
+  font-size: 1.5rem;
+  color: var(--rust);
+  flex-shrink: 0;
+}
+
+.wl-success p {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.4;
+}
