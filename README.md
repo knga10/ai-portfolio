@@ -13,6 +13,12 @@ Personal portfolio site showcasing AI projects — built with HTML/CSS, no depen
 │   └── workflows/
 │       └── deploy.yml  # Auto-deploys on push to main
 └── README.md
+└── casestudy/
+    ├── case-study.css
+    ├── recycling-finder.html
+    ├── khmer-flashcard.html
+    ├── entertainment-engine.html
+    └── hotel-tracker.html
 ```
 
 ## Customising
