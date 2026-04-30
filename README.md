@@ -25,5 +25,3 @@ Personal portfolio site showcasing AI projects — built with HTML/CSS, no depen
 ## Deployment
 
 This repo deploys automatically via GitHub Actions on every push to `main`.
-
-To set up for the first time, see the deployment instructions in the conversation.
