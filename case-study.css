@@ -1,0 +1,325 @@
+/* =============================================
+   CASE STUDY STYLES
+   ============================================= */
+
+/* Hero */
+.cs-hero {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 5rem 2rem 4rem;
+}
+
+.cs-back {
+  display: inline-block;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-light);
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+.cs-back:hover { color: var(--rust); }
+
+.cs-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 1rem 0 2.5rem;
+}
+.cs-hero h1 em {
+  font-style: italic;
+  color: var(--rust);
+}
+
+.cs-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border: 1px solid var(--beige-mid);
+  background: var(--white);
+  width: fit-content;
+}
+
+.cs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 1.5rem;
+  border-right: 1px solid var(--beige-mid);
+  font-size: 0.9rem;
+}
+.cs-meta-item:last-child { border-right: none; }
+
+.cs-meta-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+@media (max-width: 640px) {
+  .cs-hero { padding: 3.5rem 1.25rem 2.5rem; }
+  .cs-hero-meta { flex-direction: column; width: 100%; }
+  .cs-meta-item { border-right: none; border-bottom: 1px solid var(--beige-mid); }
+  .cs-meta-item:last-child { border-bottom: none; }
+}
+
+/* Sections */
+.cs-section {
+  border-top: 1px solid var(--beige-mid);
+  padding: 5rem 0;
+}
+.cs-section--tinted { background: var(--white); }
+.cs-section--sage   { background: var(--sage-pale); border-top-color: var(--sage-light); }
+
+.cs-section-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .cs-section-inner { grid-template-columns: 1fr; }
+  .cs-section { padding: 3rem 0; }
+}
+
+.cs-section-label {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--beige-dark);
+  line-height: 1;
+  padding-top: 0.3rem;
+}
+
+.cs-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.cs-section-sub {
+  font-size: 0.95rem;
+  color: var(--ink-light);
+  margin-bottom: 2.5rem;
+}
+
+/* Prompt block */
+.cs-prompt-block {
+  background: var(--beige);
+  border-left: 3px solid var(--rust);
+  padding: 1.5rem 2rem;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ink-mid);
+}
+
+/* ELI5 grid */
+.cs-eli5-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--beige-mid);
+  border: 1px solid var(--beige-mid);
+}
+
+.cs-eli5-card {
+  background: var(--beige);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.cs-section--tinted .cs-eli5-card { background: var(--white); }
+
+.cs-eli5-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.cs-eli5-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.cs-eli5-card p {
+  font-size: 0.92rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+
+/* What's next */
+.cs-next-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--beige-mid);
+  border: 1px solid var(--beige-mid);
+}
+
+.cs-next-item {
+  background: var(--white);
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 560px) {
+  .cs-next-item { grid-template-columns: 1fr; gap: 0.5rem; }
+}
+
+.cs-next-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+  padding-top: 0.2rem;
+}
+
+.cs-next-item p {
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+
+/* Feedback form */
+.cs-feedback-form {
+  background: var(--white);
+  border: 1px solid var(--sage-light);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 680px;
+}
+
+.cs-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 560px) {
+  .cs-form-row { grid-template-columns: 1fr; }
+  .cs-feedback-form { padding: 1.5rem; }
+}
+
+.cs-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cs-form-group label {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+}
+
+.cs-form-optional {
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink-light);
+  font-size: 0.75rem;
+}
+
+.cs-form-group input,
+.cs-form-group textarea {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--beige);
+  border: 1px solid var(--beige-dark);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.cs-form-group input:focus,
+.cs-form-group textarea:focus {
+  border-color: var(--sage);
+}
+
+/* Reaction radio group */
+.cs-reaction-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.cs-reaction-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  background: var(--beige);
+  border: 1px solid var(--beige-dark);
+  padding: 0.4rem 0.9rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.cs-reaction-option:has(input:checked) {
+  border-color: var(--sage);
+  background: var(--sage-pale);
+  color: var(--ink);
+}
+
+.cs-reaction-option input {
+  display: none;
+}
+
+/* Submit */
+.cs-form-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cs-submit-btn {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--rust);
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cs-submit-btn:hover:not(:disabled) { background: var(--rust-light); }
+.cs-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.cs-form-note {
+  font-size: 0.78rem;
+  color: var(--ink-light);
+}
+
+.cs-form-success {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--sage);
+  padding: 1.5rem 0;
+}
