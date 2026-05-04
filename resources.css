@@ -1,0 +1,229 @@
+/* =============================================
+   RESOURCES PAGE
+   ============================================= */
+
+/* Active nav link */
+.nav-link--active { color: var(--rust) !important; }
+
+/* ── Filter bar ── */
+.rc-filter-bar {
+  border-top: 1px solid var(--beige-mid);
+  border-bottom: 1px solid var(--beige-mid);
+  background: var(--white);
+  position: sticky;
+  top: 53px;
+  z-index: 50;
+}
+
+.rc-filter-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 0;
+}
+
+.rc-filter-btn {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.rc-filter-btn:hover { color: var(--ink); }
+
+.rc-filter-btn--active {
+  color: var(--rust);
+  border-bottom-color: var(--rust);
+}
+
+/* ── Main section ── */
+.rc-section {
+  padding: 4rem 0 5rem;
+}
+
+.rc-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* ── Group (category block) ── */
+.rc-group-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--beige-mid);
+}
+
+.rc-group-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* ── Resource list ── */
+.rc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--beige-mid);
+  border: 1px solid var(--beige-mid);
+}
+
+/* ── Resource card ── */
+.rc-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  background: var(--white);
+  padding: 1.4rem 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+.rc-card:hover {
+  background: var(--rust-pale);
+}
+
+.rc-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.rc-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Type badge — matches project-stack style */
+.rc-type {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.55rem;
+  border-radius: 2px;
+  width: fit-content;
+}
+
+.rc-type--article { background: var(--beige-mid);  color: var(--ink-mid); }
+.rc-type--video   { background: var(--rust-pale);  color: var(--rust); }
+.rc-type--tool    { background: var(--sage-pale);  color: var(--sage); }
+.rc-type--course  { background: var(--beige-mid);  color: var(--ink-mid); }
+
+.rc-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.rc-desc {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.rc-source {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-light);
+  text-align: right;
+}
+
+.rc-arrow {
+  font-size: 1rem;
+  color: var(--rust);
+  transition: transform 0.2s;
+}
+
+.rc-card:hover .rc-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 600px) {
+  .rc-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .rc-card-right {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* ── Suggest strip ── */
+.rc-suggest {
+  background: var(--sage-pale);
+  border-top: 1px solid var(--sage-light);
+  border-bottom: 1px solid var(--sage-light);
+}
+
+.rc-suggest-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.rc-suggest-text h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.rc-suggest-text p {
+  font-size: 0.92rem;
+  color: var(--ink-mid);
+}
+
+.rc-suggest-btn {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--rust);
+  padding: 0.8rem 1.75rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.rc-suggest-btn:hover { background: var(--rust-light); }
+
+@media (max-width: 600px) {
+  .rc-suggest-inner { flex-direction: column; align-items: flex-start; }
+}
