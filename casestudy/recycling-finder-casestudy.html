@@ -104,7 +104,7 @@ You type in any item — an old frying pan, dead batteries, worn-out sneakers �
               <div class="cs-eli5-icon">🧱</div>
               <h3>How it's built</h3>
               <p>
-It's a React app (the interactive webpage) that talks to Claude's brain (the AI API) to understand your search and match it to the right programs. Program data lives in a shared Upstash Redis database so every visitor sees the same up-to-date list. Three small serverless functions handle the AI search, URL scraping, and email notifications — all running on Vercel without any traditional server.
+It's a React app (the interactive webpage) that talks to Claude's brain (the AI API) to understand your search and match it to the right programs. Program data lives in a shared Upstash Redis database so every visitor sees the same up-to-date list. Three small serverless functions handle the AI search, URL scraping, and email notifications — all running on Vercel without any traditional server. 
               </p>
             </div>
 
@@ -120,7 +120,7 @@ Natural language search means users don't need to know the right category or key
               <div class="cs-eli5-icon">🚀</div>
               <h3>How it's deployed</h3>
               <p>
-The code lives in a GitHub repository. Every time a file is updated on GitHub, Vercel automatically rebuilds and redeploys the site within about 60 seconds — no manual steps needed. The Anthropic API key, Google OAuth credentials, Resend email key, and database connection are all stored as encrypted environment variables in Vercel, never in the code itself.
+The code lives in a GitHub repository. Every time a file is updated on GitHub, Vercel automatically rebuilds and redeploys the site within about 60 seconds — no manual steps needed. The Anthropic API key, Resend email key, and database connection are all stored as encrypted environment variables in Vercel, never in the code itself.
               </p>
             </div>
 
