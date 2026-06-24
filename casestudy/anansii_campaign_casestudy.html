@@ -814,8 +814,13 @@
     <p class="footer-year">© 2026 Kristine Nga</p>
   </footer>
 
-  <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOAFR1REIlh8KIkbEZy-j8D8uTczqRzNnRfV1yrVGIW7D4OR-ssSMZZPvhlHtn851X/exec";
+ <script>
+    // ─────────────────────────────────────────
+    // GOOGLE SHEETS FORM SUBMISSION
+    // Same Apps Script endpoint used across every case study page.
+    // ─────────────────────────────────────────
+
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyFjO4g41_ifSHJQZTUxatJN6KvH2bSqb0Uv1YeFolmPfb0cl2yJuCfvTmzgYiPbQqS/exec";
     const PROJECT_NAME    = "Anansii Campaign Manager";
 
     document.getElementById("feedbackForm").addEventListener("submit", async function(e) {
