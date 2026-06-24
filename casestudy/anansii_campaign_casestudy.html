@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anansii Campaign Manager · Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset & base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: #faf9f7;
+      color: #1a1a18;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.82em;
+      background: rgba(0,0,0,0.06);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* ─── Site header / nav ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #faf9f7;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      letter-spacing: 0.01em;
+      color: #1a1a18;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: #555;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #1a1a18; }
+
+    /* ─── Hero ─── */
+    .cs-hero {
+      padding: 72px 40px 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .cs-back {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: #888;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .cs-back:hover { color: #1a1a18; }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .cs-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.6rem, 5.5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: #1a1a18;
+      margin-bottom: 40px;
+      max-width: 760px;
+    }
+    .cs-hero h1 em {
+      font-style: italic;
+      color: #666;
+    }
+    .cs-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      border-left: 1px solid rgba(0,0,0,0.1);
+      width: fit-content;
+    }
+    .cs-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 28px;
+      border-right: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.85rem;
+    }
+    .cs-meta-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+    }
+    .inline-link {
+      color: #1a1a18;
+      border-bottom: 1px solid rgba(0,0,0,0.25);
+      transition: border-color 0.2s;
+    }
+    .inline-link:hover { border-color: #1a1a18; }
+
+    /* ─── Sections ─── */
+    .cs-section { padding: 80px 40px; }
+    .cs-section--tinted { background: #f2f0eb; }
+    .cs-section--sage { background: #eaede8; }
+
+    .cs-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .cs-section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(0,0,0,0.12);
+      line-height: 1;
+      padding-top: 6px;
+    }
+    .cs-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+      color: #1a1a18;
+      margin-bottom: 8px;
+    }
+    .cs-section-sub {
+      font-size: 0.88rem;
+      color: #888;
+      margin-bottom: 36px;
+      line-height: 1.5;
+    }
+
+    /* ─── Prompt block ─── */
+    .cs-prompt-block {
+      background: #1a1a18;
+      color: rgba(255,255,255,0.82);
+      border-radius: 4px;
+      padding: 32px 36px;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      font-style: italic;
+      position: relative;
+    }
+    .cs-prompt-block::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      color: rgba(255,255,255,0.06);
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    /* ─── ELI5 grid ─── */
+    .cs-eli5-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .cs-eli5-card {
+      background: #faf9f7;
+      padding: 28px 28px 24px;
+    }
+    .cs-section--tinted .cs-eli5-card { background: #f2f0eb; }
+    .cs-eli5-icon {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+    .cs-eli5-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: #1a1a18;
+      margin-bottom: 10px;
+    }
+    .cs-eli5-card p {
+      font-size: 0.875rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    .cs-eli5-card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    /* ─── What's next ─── */
+    .cs-next-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .cs-next-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 24px;
+      padding: 24px 28px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      align-items: start;
+    }
+    .cs-next-item:last-child { border-bottom: none; }
+    .cs-next-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+      padding-top: 2px;
+    }
+    .cs-next-item p {
+      font-size: 0.875rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ─── Decisions table (extra section) ─── */
+    .cs-decisions-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .cs-decisions-table th {
+      text-align: left;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      padding: 0 20px 14px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+    }
+    .cs-decisions-table td {
+      padding: 16px 20px 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      vertical-align: top;
+      line-height: 1.6;
+      color: #444;
+    }
+    .cs-decisions-table tr:last-child td { border-bottom: none; }
+    .cs-decisions-table td:first-child {
+      font-weight: 500;
+      color: #1a1a18;
+      width: 30%;
+    }
+    .verdict {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-top: 5px;
+    }
+    .verdict.worked { background: #d4edda; color: #155724; }
+    .verdict.tradeoff { background: #fff3cd; color: #856404; }
+
+    /* ─── Build steps ─── */
+    .cs-steps {
+      display: flex;
+      flex-direction: column;
+    }
+    .cs-step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 20px;
+      padding-bottom: 32px;
+      position: relative;
+    }
+    .cs-step:last-child { padding-bottom: 0; }
+    .cs-step-num-col { position: relative; }
+    .cs-step-num {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #888;
+      background: #faf9f7;
+      position: relative;
+      z-index: 1;
+    }
+    .cs-section--tinted .cs-step-num { background: #f2f0eb; }
+    .cs-step:not(:last-child) .cs-step-num-col::after {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 36px;
+      width: 1px;
+      height: calc(100% - 4px);
+      background: rgba(0,0,0,0.1);
+    }
+    .cs-step-body { padding-top: 6px; }
+    .cs-step-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: #1a1a18;
+      margin-bottom: 6px;
+    }
+    .cs-step-body p {
+      font-size: 0.875rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    .cs-step-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #888;
+      background: rgba(0,0,0,0.05);
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-top: 8px;
+    }
+
+    /* ─── Feedback form ─── */
+    .cs-feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 560px;
+    }
+    .cs-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .cs-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .cs-form-group label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #555;
+    }
+    .cs-form-optional { color: #aaa; font-weight: 300; }
+    .cs-form-group input,
+    .cs-form-group textarea {
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 2px;
+      padding: 10px 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 300;
+      background: #faf9f7;
+      color: #1a1a18;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      resize: vertical;
+    }
+    .cs-section--sage .cs-form-group input,
+    .cs-section--sage .cs-form-group textarea { background: #eaede8; }
+    .cs-form-group input:focus,
+    .cs-form-group textarea:focus { border-color: #1a1a18; }
+    .cs-reaction-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cs-reaction-option {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: #555;
+      cursor: pointer;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 2px;
+      padding: 7px 14px;
+      transition: all 0.15s;
+    }
+    .cs-reaction-option:has(input:checked) {
+      background: #1a1a18;
+      color: #faf9f7;
+      border-color: #1a1a18;
+    }
+    .cs-reaction-option input { display: none; }
+    .cs-form-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cs-submit-btn {
+      align-self: flex-start;
+      background: #1a1a18;
+      color: #faf9f7;
+      border: none;
+      border-radius: 2px;
+      padding: 11px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .cs-submit-btn:hover { opacity: 0.8; }
+    .cs-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .cs-form-note {
+      font-size: 0.72rem;
+      color: #aaa;
+    }
+    .cs-form-success {
+      font-size: 0.875rem;
+      color: #555;
+      padding: 14px 18px;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 2px;
+    }
+
+    /* ─── Footer ─── */
+    .site-footer {
+      text-align: center;
+      padding: 40px 40px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.78rem;
+      color: #aaa;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .cs-hero { padding: 48px 20px 48px; }
+      .cs-section { padding: 56px 20px; }
+      .cs-section-inner { grid-template-columns: 1fr; gap: 8px; }
+      .cs-section-label { font-size: 1.8rem; }
+      .cs-eli5-grid { grid-template-columns: 1fr; }
+      .cs-next-item { grid-template-columns: 1fr; gap: 6px; }
+      .cs-form-row { grid-template-columns: 1fr; }
+      .cs-hero-meta { flex-direction: column; width: 100%; }
+      .cs-meta-item { border-right: 1px solid rgba(0,0,0,0.1); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav>
+      <a href="https://kristinenga.com/index.html" class="nav-name">Kristine Nga</a>
+      <ul class="nav-links">
+        <li><a href="https://kristinenga.com/index.html#projects">Projects</a></li>
+        <li><a href="https://kristinenga.com/index.html#about">About</a></li>
+        <li><a href="https://kristinenga.com/waitlist.html">Stay in the Loop</a></li>
+        <li><a href="mailto:nga.kristine@gmail.com">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="cs-hero">
+      <div class="cs-hero-inner">
+        <a href="https://kristinenga.com/index.html" class="cs-back">← Back to projects</a>
+        <p class="hero-eyebrow">B2B SaaS · AI · Email Marketing</p>
+        <h1>Anansii Campaign Manager<br><em>Because a spreadsheet shouldn't run your pipeline</em></h1>
+        <div class="cs-hero-meta">
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Year</span>
+            <span>2026</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Stack</span>
+            <span>HTML · CSS · JavaScript · Claude API · Gmail MCP · Apollo.io</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Client</span>
+            <span>Anansii × UniPro Foodservice</span>
+          </div>
+          <div class="cs-meta-item">
+            <span class="cs-meta-label">Campaign</span>
+            <span>26 contacts · 3-touch email sequence · June 18 webinar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01 — ORIGINAL PROMPT -->
+    <section class="cs-section cs-section--tinted">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">01</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">The Original Prompt</h2>
+          <p class="cs-section-sub">The exact words I gave Claude to kick this off.</p>
+          <div class="cs-prompt-block">
+            <p>
+              Build an AI-powered prospecting agent to find CFO, VP of Sales, and Credit Manager contacts at wholesale food distributor companies — then use those contacts for a webinar email campaign. The webinar is "From Paper to Profit: Using AI to Approve New Accounts and Get Orders Moving Faster" on June 18, 3:00 PM ET. We have a UniPro member list of about 1,085 companies to search through.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02 — ELI5 -->
+    <section class="cs-section">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">02</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">Explain It Like I'm 5</h2>
+          <p class="cs-section-sub">How it works, why it was built this way, and the thinking behind each decision.</p>
+
+          <div class="cs-eli5-grid">
+
+            <div class="cs-eli5-card">
+              <div class="cs-eli5-icon">❓</div>
+              <h3>What it solves</h3>
+              <p>
+                Manually hunting for the right contacts at 1,000+ companies, writing personalised emails per persona, then tracking who's registered for the webinar — all of that was going to take weeks. This collapses it into a few focused sessions.
+              </p>
+            </div>
+
+            <div class="cs-eli5-card">
+              <div class="cs-eli5-icon">⚙️</div>
+              <h3>What it does</h3>
+              <p>
+                Searches Apollo for CFOs, VPs of Sales, and Credit Managers across a deduped company list, then generates three persona-targeted HTML emails for a timed drip sequence. A 6-tab dashboard handles contact management, email previews, workflow tracking, Zoom registration reconciliation, and test sends — all in a single standalone file.
+              </p>
+            </div>
+
+            <div class="cs-eli5-card">
+              <div class="cs-eli5-icon">🧱</div>
+              <h3>How it's built</h3>
+              <p>
+                A standalone HTML/CSS/JS dashboard with no backend or deployment step. It talks to Claude via <code>sendPrompt()</code> to route Apollo MCP searches and Gmail drafts through the chat session. The three emails are built as table-based HTML with all styles inlined on every element — the only format that survives Gmail's aggressive CSS stripping — verified with <code>premailer</code> to confirm zero CSS variables remain.
+              </p>
+            </div>
+
+            <div class="cs-eli5-card">
+              <div class="cs-eli5-icon">🤔</div>
+              <h3>Why this approach</h3>
+              <p>
+                Browser-based artifacts can't call MCP servers directly — only Claude in the chat can. So the UI handles state and display while Claude handles the API calls. This keeps credentials server-side, makes sends reviewable before delivery, and means the whole tool works without spinning up a backend or writing a single line of infrastructure.
+              </p>
+            </div>
+
+            <div class="cs-eli5-card full-width">
+              <div class="cs-eli5-icon">🚀</div>
+              <h3>How sends are deployed</h3>
+              <p>
+                Send buttons in the dashboard trigger a <code>sendPrompt()</code> message to Claude, which calls the Gmail MCP to create a draft in your actual Gmail account. Drafts — not direct sends — so formatting can be inspected before hitting send. For standalone use outside Claude, a clipboard fallback shim copies the prompt so the user can paste it into chat manually. Zoom reconciliation works via CSV export from the Zoom dashboard, pasted into the tool's Zoom Sync tab to suppress already-registered contacts before each batch.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03 — HOW IT WAS BUILT -->
+    <section class="cs-section cs-section--tinted">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">03</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">How It Was Built</h2>
+          <p class="cs-section-sub">Five steps from a raw member list to Gmail-ready emails.</p>
+
+          <div class="cs-steps">
+
+            <div class="cs-step">
+              <div class="cs-step-num-col">
+                <div class="cs-step-num">1</div>
+              </div>
+              <div class="cs-step-body">
+                <h3>Company deduplication</h3>
+                <p>The UniPro member list had 1,085 rows — many were branches, divisions, and location variants of the same entity. A reconciliation pass reduced this to 415 unique companies, each mapped back to the original rows with a removal reason. Quality in means fewer wasted Apollo API calls.</p>
+                <span class="cs-step-badge">1,085 rows → 415 unique companies</span>
+              </div>
+            </div>
+
+            <div class="cs-step">
+              <div class="cs-step-num-col">
+                <div class="cs-step-num">2</div>
+              </div>
+              <div class="cs-step-body">
+                <h3>AI prospecting widget (Apollo MCP)</h3>
+                <p>Built as an in-chat HTML widget using <code>sendPrompt()</code> to route Apollo searches through Claude. Target titles: CFO, Chief Financial Officer, VP of Sales, Vice President of Sales, Credit Manager. Batches of 20 companies per search. All 415 companies searched across 21 batches — hitting Apollo's 200-calls/hour free tier limit once during Batch 19, resuming after the rate limit reset.</p>
+                <span class="cs-step-badge">26 contacts found across 14 companies · ~6.3% match rate</span>
+              </div>
+            </div>
+
+            <div class="cs-step">
+              <div class="cs-step-num-col">
+                <div class="cs-step-num">3</div>
+              </div>
+              <div class="cs-step-body">
+                <h3>3-touch email campaign</h3>
+                <p>Three persona-targeted emails for CFO, VP of Sales, and Credit Manager audiences — Email 1 (full invitation), Email 2 (urgency reminder, 5 days out), Email 3 (day-of last call). The first draft used CSS variables and <code>&lt;style&gt;</code> blocks, which looked perfect in browser preview but failed in Gmail. All three were rebuilt as table-based HTML with fully inlined styles.</p>
+                <span class="cs-step-badge">Syne + Inter · navy #0A0E2E · cyan #00C8FF</span>
+              </div>
+            </div>
+
+            <div class="cs-step">
+              <div class="cs-step-num-col">
+                <div class="cs-step-num">4</div>
+              </div>
+              <div class="cs-step-body">
+                <h3>Campaign manager dashboard</h3>
+                <p>A 6-tab standalone HTML tool: Dashboard (live stats), Contacts (CSV-importable with per-contact status tracking), Email Preview (all 3 emails with send triggers), Workflow (eligibility-filtered 3-step timeline), Zoom Sync (paste registrant CSV to auto-suppress), and Test Mode (sends to test addresses only). No backend. No deployment. Runs as a file in-browser or inside Claude.</p>
+                <span class="cs-step-badge">anansii_campaign_manager.html</span>
+              </div>
+            </div>
+
+            <div class="cs-step">
+              <div class="cs-step-num-col">
+                <div class="cs-step-num">5</div>
+              </div>
+              <div class="cs-step-body">
+                <h3>Gmail MCP send flow</h3>
+                <p>Send buttons route through <code>sendPrompt()</code> to Claude, which calls Gmail MCP to create drafts. Two bugs fixed: <code>Cannot destructure 'pendingSendStep' as null</code> (send/modal sequencing) and <code>sendPrompt is not defined</code> outside the Claude iframe (clipboard fallback shim added). Draft-first flow means formatting is always inspected before delivery.</p>
+                <span class="cs-step-badge">Draft → inspect → send</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04 — KEY DECISIONS -->
+    <section class="cs-section">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">04</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">Key Decisions</h2>
+          <p class="cs-section-sub">What worked, what didn't, and why each tradeoff was worth it.</p>
+
+          <table class="cs-decisions-table">
+            <thead>
+              <tr>
+                <th>Decision</th>
+                <th>Why</th>
+                <th>Outcome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Route sends through Claude chat, not artifact API calls</td>
+                <td>Artifacts run in a sandboxed iframe and can't call MCP servers. Only the active Claude chat session can.</td>
+                <td>
+                  <span class="verdict worked">✓ Worked</span> — clean separation of concerns; UI handles state, Claude handles sends.<br>
+                  <span class="verdict tradeoff">↔ Tradeoff</span> — user must trigger sends from chat, not purely from the dashboard.
+                </td>
+              </tr>
+              <tr>
+                <td>Table-based HTML with fully inlined styles</td>
+                <td>Gmail strips <code>&lt;style&gt;</code> blocks from <code>&lt;head&gt;</code> entirely. Only <code>style=""</code> attributes on individual elements survive.</td>
+                <td>
+                  <span class="verdict worked">✓ Worked</span> — premailer confirmed 0 CSS variables, 0 style blocks in final output.<br>
+                  <span class="verdict tradeoff">↔ Tradeoff</span> — verbose and painful to edit by hand.
+                </td>
+              </tr>
+              <tr>
+                <td>Gmail MCP creates drafts, not direct sends</td>
+                <td>Allows formatting review before delivery. Safer for production sends to real contacts.</td>
+                <td>
+                  <span class="verdict worked">✓ Worked</span> — user inspects the draft in Gmail, then sends.<br>
+                  <span class="verdict tradeoff">↔ Tradeoff</span> — extra manual step vs a direct send API.
+                </td>
+              </tr>
+              <tr>
+                <td>Zoom reconciliation via manual CSV export</td>
+                <td>Zoom has no public registrant lookup API without full OAuth setup.</td>
+                <td>
+                  <span class="verdict worked">✓ Worked</span> — reconcile logic correctly filters registered contacts before each batch.<br>
+                  <span class="verdict tradeoff">↔ Tradeoff</span> — can't auto-check in real time.
+                </td>
+              </tr>
+              <tr>
+                <td>Verified email filter on Apollo (no relaxing)</td>
+                <td>Lower volume is acceptable; bounced emails damage sender reputation and waste sends.</td>
+                <td>
+                  <span class="verdict worked">✓ Worked</span> — 26 high-quality contacts vs a larger, noisier list.<br>
+                  <span class="verdict tradeoff">↔ Tradeoff</span> — ~6.3% match rate across 415 companies is low coverage.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05 — WHAT'S NEXT -->
+    <section class="cs-section cs-section--tinted">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">05</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">What's Next</h2>
+          <p class="cs-section-sub">Where this project could go with more time and feedback.</p>
+
+          <div class="cs-next-list">
+            <div class="cs-next-item">
+              <span class="cs-next-tag">Near-term</span>
+              <p>Enrich the 26 contacts via Apollo to get verified emails and full last names (~26 credits), load them into the campaign manager, and trigger Email 1 to the full batch. Confirm rendering in Gmail drafts before sending.</p>
+            </div>
+            <div class="cs-next-item">
+              <span class="cs-next-tag">Medium-term</span>
+              <p>Package the prospecting tool as a React/Vite app with a Vercel serverless function proxying Apollo calls. Removes the API key from browser exposure and gives the team a shareable URL that runs without a Claude session open.</p>
+            </div>
+            <div class="cs-next-item">
+              <span class="cs-next-tag">Ambitious</span>
+              <p>Set up OAuth with Zoom for live registration checks — no more manual CSV exports before each send. Pair with scheduled sends so Email 2 and Email 3 automatically skip registered contacts the moment they sign up, without any human in the loop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06 — FEEDBACK -->
+    <section class="cs-section cs-section--sage">
+      <div class="cs-section-inner">
+        <div class="cs-section-label">06</div>
+        <div class="cs-section-content">
+          <h2 class="cs-section-title">Share Your Thoughts</h2>
+          <p class="cs-section-sub">Feedback, ideas, and questions are welcome — I read everything.</p>
+
+          <form class="cs-feedback-form" id="feedbackForm">
+            <div class="cs-form-row">
+              <div class="cs-form-group">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" />
+              </div>
+              <div class="cs-form-group">
+                <label for="email">Email <span class="cs-form-optional">(optional)</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" />
+              </div>
+            </div>
+            <div class="cs-form-group">
+              <label>What's your reaction to this project?</label>
+              <div class="cs-reaction-group">
+                <label class="cs-reaction-option"><input type="radio" name="reaction" value="Love it" /> Love it</label>
+                <label class="cs-reaction-option"><input type="radio" name="reaction" value="Interesting" /> Interesting</label>
+                <label class="cs-reaction-option"><input type="radio" name="reaction" value="Has potential" /> Has potential</label>
+                <label class="cs-reaction-option"><input type="radio" name="reaction" value="I'd use this" /> I'd use this</label>
+              </div>
+            </div>
+            <div class="cs-form-group">
+              <label for="message">Your thoughts</label>
+              <textarea id="message" name="message" rows="4" placeholder="What stood out? What would you change? What would you love to see next?"></textarea>
+            </div>
+            <div class="cs-form-footer">
+              <button type="submit" class="cs-submit-btn" id="submitBtn">Send feedback</button>
+              <p class="cs-form-note">Responses go to a private Google Sheet — no spam, ever.</p>
+            </div>
+            <div id="formSuccess" class="cs-form-success" style="display:none;">
+              Thanks for the feedback — it genuinely helps. ✦
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with curiosity. Deployed with care.</p>
+    <p class="footer-year">© 2026 Kristine Nga</p>
+  </footer>
+
+  <script>
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOAFR1REIlh8KIkbEZy-j8D8uTczqRzNnRfV1yrVGIW7D4OR-ssSMZZPvhlHtn851X/exec";
+    const PROJECT_NAME    = "Anansii Campaign Manager";
+
+    document.getElementById("feedbackForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById("submitBtn");
+      btn.textContent = "Sending...";
+      btn.disabled = true;
+
+      const data = {
+        project:  PROJECT_NAME,
+        name:     document.getElementById("name").value,
+        email:    document.getElementById("email").value,
+        reaction: document.querySelector('input[name="reaction"]:checked')?.value || "",
+        message:  document.getElementById("message").value,
+        date:     new Date().toLocaleString("en-AU")
+      };
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        document.getElementById("feedbackForm").style.display = "none";
+        document.getElementById("formSuccess").style.display = "block";
+      } catch (err) {
+        btn.textContent = "Send feedback";
+        btn.disabled = false;
+        alert("Something went wrong — please try again.");
+      }
+    });
+  </script>
+
+</body>
+</html>
