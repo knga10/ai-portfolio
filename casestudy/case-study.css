@@ -104,6 +104,17 @@
   margin-bottom: 0.5rem;
 }
 
+.on-hold-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #7A7068;
+  background: #E8E0D5;
+  border-left: 3px solid #B05A3B;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
 .cs-section-sub {
   font-size: 0.95rem;
   color: var(--ink-light);
