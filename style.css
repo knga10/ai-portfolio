@@ -263,6 +263,21 @@ nav {
 
 .project-link:hover { letter-spacing: 0.08em; }
 
+.badge-on-hold {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #E8E0D5;
+  color: #7A7068;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
 /* =============================================
    ABOUT
    ============================================= */
